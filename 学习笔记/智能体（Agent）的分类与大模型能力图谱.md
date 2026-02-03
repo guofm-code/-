@@ -2,8 +2,6 @@
 
 ---
 
-# 📝 核心笔记：智能体（Agent）的分类与大模型能力图谱
-
 ### 核心定义
 
 **智能体 (Agent) = 大模型 (Brain) + 感知 (Sensory) + 工具 (Tools/Action)**
