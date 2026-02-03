@@ -1,6 +1,8 @@
-# Obsidian 三端同步完整指南
+
 
 > 本指南介绍如何使用 Git + GitHub 实现 Obsidian 在手机、工作电脑、家用电脑之间的同步。
+>
+> 🤖 **Claude Code 可直接操作的步骤**：本指南中标注 🤖 的步骤可以让 Claude Code 直接帮你完成，只需要说出对应的话即可。
 
 ---
 
@@ -13,7 +15,9 @@
 
 ## 第一步：第一台电脑（工作电脑）配置
 
-### 1.1 初始化 Git 仓库
+> 💡 **提示**：标注 🤖 的步骤可以让 Claude Code 直接帮你操作
+
+### 1.1 初始化 Git 仓库 🤖
 
 打开 PowerShell/CMD，依次执行：
 
@@ -29,9 +33,13 @@ git config --global user.name "你的用户名"
 git config --global user.email "你的邮箱"
 ```
 
-### 1.2 创建忽略文件
+> 💬 对 Claude Code 说："帮我初始化 Obsidian Vault 的 Git 仓库"
+
+### 1.2 创建忽略文件 🤖
 
 在 Vault 根目录创建 `.gitignore` 文件，内容如下：
+
+> 💬 对 Claude Code 说："帮我创建 Obsidian 的 .gitignore 文件"
 
 ```gitignore
 # Obsidian 配置文件（不同设备可能有不同设置）
@@ -50,7 +58,7 @@ Thumbs.db
 *~
 ```
 
-### 1.3 第一次提交
+### 1.3 第一次提交 🤖
 
 ```bash
 # 添加所有文件
@@ -60,6 +68,8 @@ git add .
 git commit -m "Initial commit: Obsidian vault setup"
 ```
 
+> 💬 对 Claude Code 说："帮我把 Vault 的更改提交到 Git"
+
 ### 1.4 创建 GitHub 仓库
 
 1. 打开 https://github.com/new
@@ -68,7 +78,7 @@ git commit -m "Initial commit: Obsidian vault setup"
 4. 选择 **Public**（公开）或 **Private**（私有需要 Token）
 5. 点击 **Create repository**
 
-### 1.5 连接远程仓库
+### 1.5 连接远程仓库 🤖
 
 在 GitHub 创建页面找到 push 命令，或执行：
 
@@ -78,9 +88,13 @@ git branch -M main
 git push -u origin main
 ```
 
-### 1.6 创建同步脚本（可选）
+> 💬 对 Claude Code 说："帮我连接 GitHub 远程仓库并推送"（需要提供仓库地址）
+
+### 1.6 创建同步脚本（可选）🤖
 
 创建 `sync.bat` 文件：
+
+> 💬 对 Claude Code 说："帮我创建一个 Git 同步脚本 sync.bat"
 
 ```bat
 @echo off
@@ -114,7 +128,7 @@ pause
 2. 浏览插件 → 搜索 **Git** → 安装 **Obsidian Git**
 3. 启用插件
 
-### 1.8 配置 Obsidian Git
+### 1.8 配置 Obsidian Git 🤖
 
 设置 → Obsidian Git → Options：
 
@@ -128,6 +142,8 @@ pause
 | Show status bar | ✅ 开启 |
 | Author name for commits | 你的用户名 |
 | Author email for commits | 你的邮箱 |
+
+> 💬 对 Claude Code 说："帮我配置 Obsidian Git 插件的自动同步设置"
 
 ---
 
@@ -235,9 +251,11 @@ git clone https://github.com/你的用户名/仓库名.git "Obsidian Vault"
 2. 管理仓库 → 打开本地文件夹
 3. 选择克隆下来的 `Obsidian Vault` 文件夹
 
-### 3.3 安装并配置 Obsidian Git
+### 3.3 安装并配置 Obsidian Git 🤖
 
 同工作电脑步骤 1.7、1.8
+
+> 💬 对 Claude Code 说："帮我配置这台电脑的 Obsidian Git 插件"（需先安装插件）
 
 ---
 
@@ -270,6 +288,8 @@ git commit -m "解决冲突"
 git push
 ```
 
+> 💬 对 Claude Code 说："帮我解决 Git 合并冲突"（需要描述冲突情况）
+
 ---
 
 ## ⚠️ 常见问题
@@ -290,15 +310,17 @@ git push
 - 原因：Git 路径未配置
 - 解决：Obsidian Git 设置 → Advanced → Path to Git binary → 填写 `C:\Program Files\Git\bin\git.exe`
 
-### Q5: 出现 .base 文件
+### Q5: 出现 .base 文件 🤖
 - 原因：Git 合并冲突产生的备份
-- 解决：直接删除即可
+- 解决：直接删除，或让 Claude Code 帮你清理
 
 ---
 
-## 🔧 纯命令行操作（备用）
+## 🔧 纯命令行操作（备用）🤖
 
 如果不使用 Obsidian Git 插件，可以使用命令行：
+
+> 💬 对 Claude Code 说："帮我推送 Vault 的更改到 GitHub" 或 "帮我拉取最新笔记"
 
 ### 推送更改
 
