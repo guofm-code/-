@@ -42,11 +42,10 @@ git config --global user.email "你的邮箱"
 > 💬 对 Claude Code 说："帮我创建 Obsidian 的 .gitignore 文件"
 
 ```gitignore
-# Obsidian 配置文件（不同设备可能有不同设置）
+# Obsidian 工作区配置（不同设备布局不同，不建议同步）
 .obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/cache/
-.obsidian/plugins/*/data.json
 
 # 系统文件
 .DS_Store
@@ -57,6 +56,8 @@ Thumbs.db
 *.swp
 *~
 ```
+
+> 💡 **注意**：插件配置（`.obsidian/plugins/*/data.json`）**建议同步**，这样各设备的插件设置保持一致。如果某些插件需要在不同设备上用不同设置，可以单独添加到忽略列表。
 
 ### 1.3 第一次提交 🤖
 
@@ -213,7 +214,13 @@ git config --global credential.helper store
 
 ### 2.7 配置 Obsidian Git
 
-同电脑端步骤 1.8
+> ⚠️ **重要区别**：手机端**不需要**设置 "Path to git executable" 这个选项（该选项只在电脑端存在）。只需配置以下两项：
+
+设置 → Obsidian Git：
+- **Author name for commits**：你的用户名
+- **Author email for commits**：你的邮箱
+
+其他设置（备份间隔、自动拉取等）同电脑端步骤 1.8
 
 ### 2.8 手机端日常使用
 
