@@ -222,7 +222,7 @@ git config --global credential.helper store
 
 其他设置（备份间隔、自动拉取等）同电脑端步骤 1.8
 
-### 2.8 手机端日常使用
+### 2.8 手机端日常使用（Obsidian Git 插件方式）
 
 #### 同步流程：
 
@@ -238,6 +238,55 @@ git config --global credential.helper store
 | ↑ | 推送（Push） |
 | ↓ | 拉取（Pull） |
 | + | 暂存文件（Stage） |
+
+---
+
+### 2.9 手机端日常使用（Termux 命令行方式）🤖
+
+> 💡 **推荐**：使用 Termux 命令行比 Obsidian Git 插件更稳定可靠
+
+#### 快捷命令配置 🤖
+
+在 Termux 中执行以下命令创建快捷方式：
+
+```bash
+# 创建进入 Vault 的别名
+git config --global alias.o '!cd ~/storage/shared/Documents/Obsidian\ Vault/'
+
+# 创建一键同步别名（拉取+提交+推送）
+git config alias.sync '!git pull origin main && git add -A && git commit -m "sync: $(date)" && git push origin main'
+```
+
+> 💬 对 Claude Code 说："帮我配置手机端 Git 快捷命令"
+
+#### 日常使用流程
+
+| 场景 | 命令 |
+|------|------|
+| **进入 Vault 目录** | `git o` |
+| **一键同步**（拉取+提交+推送） | `git sync` |
+
+#### 完整操作示例
+
+**场景 A：手机端开始工作前（拉取电脑端的更改）**
+```bash
+git o          # 进入 Obsidian Vault 目录
+git sync       # 拉取远程最新内容
+```
+然后打开手机 Obsidian 编辑笔记。
+
+**场景 B：手机端编辑完成后（推送到电脑端）**
+```bash
+git o          # 进入 Obsidian Vault 目录
+git sync       # 提交本地更改并推送到远程
+```
+然后电脑端执行 `git pull` 或点击 Obsidian Git 的 Pull 按钮即可看到更新。
+
+#### ⚠️ 注意事项
+
+1. **Token 缓存 15 分钟** - 如果提示输入密码，输入你的 GitHub Personal Access Token（`ghp_` 开头）
+2. **先拉后推** - `git sync` 会自动先拉取再推送，避免冲突
+3. **冲突处理** - 如果提示冲突，联系 Claude Code 帮你解决
 
 ---
 
